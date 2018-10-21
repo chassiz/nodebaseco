@@ -28,13 +28,32 @@
         <!-- endbuild -->
 
         <style>
-        .page-title-box {
+        .page-title-box, .topbar-menu {
             display: none;
         }
         </style>
     </head>
 
     <body>
+
+      <?php
+      $url = "https://coinbase.com/api/v1/prices/spot_rate";
+      $json = json_decode(file_get_contents($url), true);
+      $price = $json["amount"];
+      ?>
+
+      <?php
+      $BLTGurl = 'http://bltg.blockexplorer.cf:3001/ext/getbalance/BL8RexYyfXFps76VpbsDFSYoyUbfb3dace'; // path to your JSON file
+      $BLTGdata = file_get_contents($BLTGurl); // put the contents of the file into a variable
+      $BLTGwallet = json_decode($BLTGdata); // decode the JSON feed
+      ?>
+
+      <?php
+      $southxurl = 'https://www.southxchange.com/api/price/BLTG/USD'; // path to your JSON file
+      $southxdata = file_get_contents($southxurl); // put the contents of the file into a variable
+      $BltgPrice = json_decode($southxdata); // decode the JSON feed
+      ?>
+
 
         <!-- Navigation Bar-->
         <header id="topnav">
@@ -355,8 +374,8 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                 </div>
                             </div>
-                            <h4 class="header-title">Daily Sales</h4>
-                            <p class="text-muted">March 26 - April 01</p>
+                            <h4 class="header-title">Daily Revenue</h4>
+                            <p class="text-muted"><?php echo date("F d Y",strtotime("2018-10-21 04:26:06")) ?> </p>
                             <div class="mb-3 mt-4">
                                 <div class="float-right d-none d-xl-block">
                                     <img src="assets/images/cards/visa.png" alt="user-card" height="28" />
@@ -401,19 +420,19 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                 </div>
                             </div>
-                            <h4 class="header-title mb-3">Statistics</h4>
+                            <h4 class="header-title mb-3">BLTG Statistics</h4>
                             <div class="row text-center">
                                 <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">4,335</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
+                                    <h3 class="font-weight-light"><?php echo number_format($BltgPrice->Last, 3); ?></h3>
+                                    <p class="text-muted text-overflow">BLTG Price</p>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">874</h3>
-                                    <p class="text-muted text-overflow">Open Compaign</p>
+                                    <h3 class="font-weight-light"><?php echo round($BLTGwallet, 4); ?></h3>
+                                    <p class="text-muted text-overflow">Total Coins</p>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <h3 class="font-weight-light">2,548</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
+                                    <h3 class="font-weight-light"><?php echo number_format($BltgPrice->Variation24Hr, 2); ?></h3>
+                                    <p class="text-muted text-overflow">24Hr Change</p>
                                 </div>
                             </div>
                             <div class="chartjs-chart high-performing-product">
@@ -442,8 +461,8 @@
                             <h4 class="header-title mb-3">Total Revenue</h4>
                             <div class="row text-center">
                                 <div class="col-6 mb-3">
-                                    <h3 class="font-weight-light">8,459</h3>
-                                    <p class="text-muted text-overflow">Total Sales</p>
+                                    <h3 class="font-weight-light"><?php echo $price; ?></h3>
+                                    <p class="text-muted text-overflow">BTC Price</p>
                                 </div>
                                 <div class="col-6 mb-3">
                                     <h3 class="font-weight-light">584</h3>

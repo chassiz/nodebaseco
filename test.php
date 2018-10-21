@@ -1,19 +1,19 @@
 <html>
 	<head>
-		
+
 <style>
 
 .flex-container {
   padding: 0;
   margin: 0;
   list-style: none;
-  
+
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  
+
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
 }
@@ -24,19 +24,19 @@
   width: 200px;
   height: 150px;
   margin-top: 10px;
-  
+
   line-height: 150px;
   color: white;
   font-weight: bold;
   font-size: 1.5em;
   text-align: center;
-}  
+}
 </style>
-  
+
 	</head>
 	<body>
-	
-  
+
+
 <?php
 $BLTGurl = 'http://bltg.blockexplorer.cf:3001/ext/getbalance/BL8RexYyfXFps76VpbsDFSYoyUbfb3dace'; // path to your JSON file
 $BLTGdata = file_get_contents($BLTGurl); // put the contents of the file into a variable
@@ -87,13 +87,12 @@ $price = $json["amount"];
 
 <ul class="flex-container">
   <li class="flex-item">Bitcoin $<?php echo $price; ?></li>
-  <li class="flex-item">BLTG $<?php echo number_format($price * $southxcharacters->Last, 3);  
+  <li class="flex-item">BLTG $<?php echo number_format($price * $southxcharacters->Last, 3);
 	  // Multiply HDLC with BTC and shorten decimal to 3?></li>
-  <li class="flex-item">XAX $<?php echo number_format($price * $characters[123]->last, 3);  
+  <li class="flex-item">XAX $<?php echo number_format($price * $characters[123]->last, 3);
 	  // Multiply HDLC with BTC and shorten decimal to 3?></li>
-  <li class="flex-item">HLDC $<?php echo number_format($price * $characters[128]->last, 3);  
+  <li class="flex-item">HLDC $<?php echo number_format($price * $characters[128]->last, 3);
 	  // Multiply HDLC with BTC and shorten decimal to 3?></li>
-
 </ul>
 
 
@@ -103,14 +102,14 @@ $price = $json["amount"];
   <li class="flex-item">XAX 32780</li>
   <li class="flex-item">HLDC 22020</li>
  </ul>
- 
+
  <ul class="flex-container" id="$ Value">
   <li class="flex-item">$ Value</li>
   <li class="flex-item">$<?php echo number_format(114445 * $price * $southxcharacters->Last, 3); ?></li>
   <li class="flex-item">$<?php echo number_format(32780 * $price * $characters[123]->last, 3); ?></li>
   <li class="flex-item">$<?php echo number_format(22020 * $price * $characters[128]->last, 3); ?></li>
  </ul>
- 
+
   <ul class="flex-container" id="Bitcoin 24hr">
   <li class="flex-item">Bitcoin 24hr</li>
   <li class="flex-item">$<?php echo $btccharacters->Bid; ?></li>
@@ -150,19 +149,19 @@ $price = $json["amount"];
     <li class="flex-item"><iframe src="https://coinlib.io/widget?type=single&theme=light&coin_id=871787&pref_coin_id=1505" width="246" height="150" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
   </li>
   <li class="flex-item"><iframe src="https://coinlib.io/widget?type=single&theme=light&coin_id=486436&pref_coin_id=1505" width="246" height="150" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></li>
- 
+
   <li class="flex-item"><iframe src="https://coinlib.io/widget?type=single&theme=light&coin_id=755199&pref_coin_id=1505" width="246" height="150" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe> </li>
- 
-  <li class="flex-item"><iframe src="https://coinlib.io/widget?type=single&theme=light&coin_id=793513&pref_coin_id=1505" width="246" height="150" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"> 
+
+  <li class="flex-item"><iframe src="https://coinlib.io/widget?type=single&theme=light&coin_id=793513&pref_coin_id=1505" width="246" height="150" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;">
   </iframe></li>
-  
+
  </ul>
- 
+
   <ul class="flex-container" id="XAX WALLETS">
   <li class="flex-item"><script type="text/javascript">var cf_widget_size = "small"; var cf_widget_from = "XAX"; var cf_widget_to = "usd"; var cf_widget_name = "Artax"; var cf_clearstyle = true;</script><script src="https://www.worldcoinindex.com/content/widgets/js/render_widget-min.js" type="text/javascript"></script></li>
- 
+
   </ul>
-  
-  	 
+
+
  </body>
 </html>
